@@ -33,7 +33,11 @@ module Gitar
         self.class.repository_exists?(@repository_name)
       end
       
-
+      def document_path
+        [repository.dir.path, id].join('/')
+      end
+  
+  
       private
 
       def create_or_find_default_repository

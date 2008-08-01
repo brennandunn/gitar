@@ -1,6 +1,8 @@
 module Gitar
   class Base
-    include Environment, Document
+    include Environment, Document, Storage, Validation
+    
+    attr_reader :repository
     
     def initialize(attributes = {})
       create_or_find_default_repository

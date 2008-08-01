@@ -8,6 +8,7 @@ class TestGitar < Test::Unit::TestCase
   
   def teardown
     FileUtils.rm_rf('store/.git')
+    FileUtils.rm Dir.glob('store/*')
   end
 
   context 'check the environment' do
@@ -44,5 +45,26 @@ class TestGitar < Test::Unit::TestCase
     end
     
   end
+  
+  context 'handling objects' do
+      
+    setup do
+      @toby = Cat.new :furry => true, :name => 'Toby', :friends => ['Machi', 'Sushi']
+    end  
+    
+    context 'storing' do
+      
+      setup do
+        @toby.save
+      end
+      
+      should 'write a file' do
+        assert File.exists?('store/' + @toby.id)
+      end
+      
+    end
+      
+  end
+  
 
 end

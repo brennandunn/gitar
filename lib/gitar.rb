@@ -6,6 +6,8 @@ require 'yaml'
 require 'gitar/version'
 require 'gitar/environment'
 require 'gitar/document'
+require 'gitar/storage'
+require 'gitar/validation'
 require 'gitar/base'
 
 module Gitar
